@@ -1,0 +1,24 @@
+{
+	"header": {
+		"field": "Поиск"
+	},
+	"form": {
+		"title1": "Регистрация",
+		"title2": "Вход",
+		"labelName": "Имя",
+		"labelSurname": "Фамилия",
+		"labelLogin": "Логин",
+		"labelPhone": "Телефон",
+		"labelAge": "День рождения",
+		"labelPassword": "Пароль",
+		"labelPasswordAgain": "Повторите пароль",
+		"labelGender": "Пол",
+		"labelCity": "Город",
+		"btn1": "Зарегистрироваться",
+		"btn2": "Войти",
+		"question1": "У вас уже есть аккаунт?",
+		"question2": "У вас нет аккаунта?",
+		"photoAddBtn": "Загрузить картинку",
+		"photoDelBtn": "Удалить картинку"
+	}
+}

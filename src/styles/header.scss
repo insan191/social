@@ -1,0 +1,58 @@
+.header {
+	background: #222222;
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__left {
+		display: flex;
+		align-items: center;
+		column-gap: 35px;
+	}
+	&__right {
+		display: flex;
+		align-items: center;
+		column-gap: 20px;
+	}
+	&__search {
+		position: relative;
+		&-icon {
+			position: absolute;
+			top: 6px;
+			left: 8px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		&-field {
+			width: 230px;
+			background: #424242;
+			border-radius: 8px;
+			height: 32px;
+			border: none;
+			padding: 0 12px 0 34px;
+		}
+	}
+	&__notif {
+		font-size: 27px;
+		cursor: pointer;
+	}
+	&__user {
+		display: flex;
+		align-items: center;
+		column-gap: 4px;
+		cursor: pointer;
+		padding: 15px 10px;
+		&:hover {
+			background: #424242;
+		}
+		&-photo {
+			border-radius: 50%;
+			height: 32px;
+			width: 32px;
+		}
+		&-icon {
+			font-size: 20px;
+		}
+	}
+}

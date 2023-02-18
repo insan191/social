@@ -1,0 +1,180 @@
+.register {
+	background: #222222;
+	background: linear-gradient(150.15deg, $black 10.12%, $blue 100.22%);
+	padding: 30px 0;
+	&__title {
+		margin-bottom: 20px;
+		text-align: center;
+		font-weight: 900;
+		background: linear-gradient(
+			91.92deg,
+			#ffffff 29.24%,
+			rgba(176, 250, 255, 0) 131.64%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+	&__block {
+		display: flex;
+		column-gap: 20px;
+	}
+	&__label {
+		width: 100%;
+		margin-bottom: 10px;
+		&-title {
+			margin-bottom: 5px;
+			font-weight: 600;
+			font-size: 16px;
+			background: linear-gradient(
+				100.92deg,
+				#dfdde1 20.24%,
+				rgba(176, 250, 255, 0) 100.64%
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+		}
+	}
+	&__gender {
+		margin-bottom: 10px;
+		display: flex;
+		column-gap: 20px;
+		font-weight: 600;
+		font-size: 16px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		background: linear-gradient(
+			91.92deg,
+			#dfdde1 5.24%,
+			rgba(176, 250, 255, 0) 100.64%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+
+		/* для элемента input c type="radio" */
+		&-input {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+		/* для элемента label связанного с .custom-radio */
+		&-inout + label {
+			display: inline-flex;
+			align-items: center;
+			user-select: none;
+		}
+		/* создание в label псевдоэлемента  before со следующими стилями */
+		&-input + label::before {
+			content: '';
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			flex-shrink: 0;
+			flex-grow: 0;
+			border: 1px solid #adb5bd;
+			border-radius: 50%;
+			margin-right: 0.5em;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 50% 50%;
+		}
+		/* стили при наведении курсора на радио */
+		&-input:not(:disabled):not(:checked) + label:hover::before {
+			border-color: #b3d7ff;
+		}
+		/* стили для активной радиокнопки (при нажатии на неё) */
+		&-input:not(:disabled):active + label::before {
+			background-color: #b3d7ff;
+			border-color: #b3d7ff;
+		}
+		/* стили для радиокнопки, находящейся в фокусе */
+		&-input:focus + label::before {
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+		}
+		/* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+		&-input:focus:not(:checked) + label::before {
+			border-color: #80bdff;
+		}
+		/* стили для радиокнопки, находящейся в состоянии checked */
+		&-input:checked + label::before {
+			border-color: $blue;
+			background-color: $blue;
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+		}
+		/* стили для радиокнопки, находящейся в состоянии disabled */
+		&-input + label::before {
+			background-color: rgba(7, 88, 92, 0.1);
+		}
+		&-item {
+			display: flex;
+			column-gap: 5px;
+			align-items: center;
+		}
+	}
+	&__field {
+		background: rgba(7, 88, 92, 0.1);
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(2px);
+		border-radius: 4px;
+		border: none;
+		outline: none;
+		display: block;
+		padding: 5px 15px;
+		width: 100%;
+	}
+	&__content {
+		display: flex;
+		justify-content: center;
+	}
+	&__form {
+		max-width: 400px;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(2px);
+		border-radius: 8px;
+		padding: 30px 20px;
+	}
+	&__btn {
+		background: $blue;
+		border: none;
+		font-weight: 700;
+		font-size: 15px;
+		box-shadow: 0px 8px 16px $blue;
+		border-radius: 12px;
+		padding: 10px;
+		color: #ffffff;
+		justify-content: center;
+		margin: 0 auto;
+		width: 200px;
+	}
+	&__error {
+		display: flex;
+		margin-top: 2px;
+		align-items: center;
+		column-gap: 3px;
+		&-text {
+			font-size: small;
+			color: $red;
+		}
+	}
+	&__question {
+		margin-top: 15px;
+		text-align: center;
+	}
+	&__photo {
+		&-addBtn {
+			background-color: $blue;
+		}
+		&-image {
+			width: 200px;
+		}
+	}
+}

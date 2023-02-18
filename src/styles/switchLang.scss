@@ -1,0 +1,40 @@
+.switchLangs {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 76px;
+  height: 40px;
+  border: 1px solid #E1E1E1;
+  border-radius: 8px;
+  background: #F1F1F1;
+}
+
+.switchLangBtn {
+  width: 36px;
+  height: 36px;
+
+  transition: all 0.2s;
+
+  color: #919191;
+  border: 1px solid #F1F1F1;
+  border-radius: 5px;
+  background: none;
+  background: #F1F1F1;
+
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  font-style: normal;
+  line-height: 20px;
+}
+
+.switchLangBtn.active {
+  color: black;
+  border-radius: 6px;
+  background: #FFF;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14);
+}
