@@ -38,13 +38,16 @@
 		cursor: pointer;
 	}
 	&__user {
-		display: flex;
-		align-items: center;
-		column-gap: 4px;
-		cursor: pointer;
-		padding: 15px 10px;
+		display: flex !important;
+		align-items: center !important;
+		column-gap: 4px !important;
+		cursor: pointer !important;
+		padding: 15px 10px !important;
+		background: transparent !important;
+		height: auto !important;
+		border-radius: 0 !important;
 		&:hover {
-			background: #424242;
+			background: #424242 !important;
 		}
 		&-photo {
 			border-radius: 50%;
@@ -53,6 +56,42 @@
 		}
 		&-icon {
 			font-size: 20px;
+		}
+	}
+	&__popover {
+		padding: 20px;
+		&-top {
+			display: flex;
+			column-gap: 10px;
+			align-items: center;
+			padding: 8px 5px;
+			background: rgba(7, 88, 92, 0.7);
+			box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+			backdrop-filter: blur(2px);
+			border-radius: 8px;
+		}
+		&-list {
+			display: flex;
+			flex-direction: column;
+			row-gap: 7px;
+			margin-top: 10px;
+		}
+		&-item {
+			padding: 5px;
+			display: flex;
+			column-gap: 10px;
+			border-radius: 5px;
+			align-items: center;
+			svg {
+				font-size: 20px;
+			}
+			&:not(:nth-child(3)):hover {
+				cursor: pointer;
+				background: rgba(7, 88, 92, 0.7);
+				box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+				backdrop-filter: blur(2px);
+				border-radius: 8px;
+			}
 		}
 	}
 }

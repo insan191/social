@@ -1,0 +1,229 @@
+.friends {
+	width: 100%;
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		row-gap: 15px;
+		width: 100%;
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(2px);
+		border-radius: 8px;
+		padding: 30px;
+		&-item {
+			padding: 5px;
+			font-size: 15px;
+			border-radius: 4px;
+			cursor: pointer;
+			display: flex;
+			column-gap: 10px;
+			align-items: center;
+
+			&:hover {
+				background: rgba(7, 88, 92, 0.1);
+				box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+				backdrop-filter: blur(2px);
+				border-radius: 8px;
+			}
+		}
+	}
+
+	&__row {
+		width: 100%;
+		display: flex;
+		column-gap: 30px;
+	}
+	&__left {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		width: 60%;
+	}
+	&__right {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		width: 40%;
+	}
+	&__follow {
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(2px);
+		border-radius: 8px;
+		padding: 30px;
+	}
+	&__title {
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+	&__search {
+		position: relative;
+		margin-bottom: 30px;
+		&-input {
+			width: 100%;
+			height: 45px;
+			border-radius: 5px;
+			padding-left: 15px;
+			background: transparent;
+			border: 2px solid rgba(255, 255, 255, 0.1);
+		}
+		&-btn {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: #8c8c8c;
+			border: 2px solid rgba(255, 255, 255, 0.1);
+			border-radius: 0 5px 5px 0;
+			height: 45px;
+			padding: 0 20px;
+			font-size: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+	}
+	&__card {
+		width: calc(33.33333% - 20px);
+		&-img {
+			width: 150px;
+			max-height: 160px;
+			object-fit: cover;
+			border-radius: 4px;
+			cursor: pointer;
+			aspect-ratio: 1 / 1;
+		}
+		&-bottom {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&-link {
+			font-size: 14px;
+			color: #fbfbfbe7;
+		}
+		&-friends {
+			color: #8c8c8c;
+			font-size: 12px;
+		}
+		&-btn {
+			background: transparent;
+			border: none;
+			font-size: 22px;
+			color: #0050b360;
+		}
+	}
+
+	&__filter {
+		width: 100%;
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(2px);
+		border-radius: 8px;
+		padding: 30px;
+	}
+}
+.myFriends {
+	width: 100%;
+	padding: 30px;
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+	backdrop-filter: blur(2px);
+	border-radius: 8px;
+	&__popover {
+		&-list {
+			display: flex;
+			flex-direction: column;
+			row-gap: 10px;
+		}
+		&-item {
+			padding: 4px 3px;
+			font-size: 15px;
+			border-radius: 4px;
+			cursor: pointer;
+			display: flex;
+			column-gap: 10px;
+			align-items: center;
+			&:hover {
+				background: rgba(255, 255, 255, 0.1);
+				box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+				backdrop-filter: blur(2px);
+				border-radius: 8px;
+			}
+		}
+	}
+	&__search {
+		position: relative;
+		margin-bottom: 30px;
+		&-input {
+			width: 100%;
+			height: 45px;
+			border-radius: 5px;
+			padding-left: 15px;
+			background: transparent;
+			border: 1px solid #adb5bd;
+		}
+		&-btn {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: #8c8c8c;
+			border: 1px solid #adb5bd;
+			border-radius: 0 5px 5px 0;
+			height: 45px;
+			padding: 0 20px;
+			font-size: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__title {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		column-gap: 15px;
+		position: relative;
+		padding: 10px;
+		justify-content: space-between;
+		&-line {
+			background: rgba(255, 255, 255, 0.1);
+			height: 2px;
+			width: 100%;
+		}
+		&-block {
+			display: flex;
+			align-items: center;
+			column-gap: 15px;
+		}
+		&-info {
+			display: flex;
+			flex-direction: column;
+		}
+		&-login {
+			font-size: 20px;
+			color: $blue;
+			font-weight: 800;
+		}
+		&-name {
+			font-size: 13px;
+			color: $grey;
+			font-weight: 400;
+		}
+
+		&-avatar {
+			border-radius: 50%;
+			width: 100px;
+			object-fit: cover;
+			height: 100px;
+			cursor: pointer;
+		}
+	}
+}

@@ -13,8 +13,11 @@ const userSlice = createSlice({
 		fillUser: (state, action) => {
 			state.user = action.payload
 		},
+		logOutUser: state => {
+			state.user = { login: '' }
+		},
 	},
 })
 
-export const { fillUser } = userSlice.actions
+export const { fillUser, logOutUser } = userSlice.actions
 export default userSlice.reducer

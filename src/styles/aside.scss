@@ -1,0 +1,29 @@
+.aside {
+	width: calc(15% - 15px);
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		row-gap: 15px;
+	}
+	&__item {
+		padding: 4px 3px;
+		font-size: 15px;
+		border-radius: 4px;
+		cursor: pointer;
+		display: flex;
+		column-gap: 10px;
+		align-items: center;
+		&.active {
+			background: rgba(255, 255, 255, 0.1);
+			box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+			backdrop-filter: blur(2px);
+			border-radius: 8px;
+		}
+		&:hover {
+			background: rgba(255, 255, 255, 0.1);
+			box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+			backdrop-filter: blur(2px);
+			border-radius: 8px;
+		}
+	}
+}

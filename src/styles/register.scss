@@ -1,5 +1,5 @@
 .register {
-	background: #222222;
+	min-height: 100vh;
 	background: linear-gradient(150.15deg, $black 10.12%, $blue 100.22%);
 	padding: 30px 0;
 	&__title {
@@ -173,7 +173,12 @@
 		&-addBtn {
 			background-color: $blue;
 		}
+		&-delBtn {
+			background-color: $blue;
+		}
 		&-image {
+			object-fit: cover;
+			aspect-ratio: 1 / 1;
 			width: 200px;
 		}
 	}

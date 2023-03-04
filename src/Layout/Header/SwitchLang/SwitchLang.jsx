@@ -2,11 +2,9 @@ import { useTranslation } from 'react-i18next'
 
 const SwitchLang = () => {
 	const { i18n } = useTranslation()
-
 	const changesLanguage = lang => {
 		i18n.changeLanguage(lang)
 	}
-
 	return (
 		<div className='switchLangs'>
 			<button

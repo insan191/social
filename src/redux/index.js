@@ -10,11 +10,15 @@ import {
 	REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
+import findUsers from './reducers/findUsers'
+import { friendsSlice } from './reducers/friends'
+import { ingoingSlice } from './reducers/ingoing'
+import { outgoingSlice } from './reducers/outgoing'
 import user from './reducers/user'
 
 const rootReducer = combineReducers({
 	user,
+	findUsers,
 })
 
 const persistConfig = {
@@ -25,13 +29,21 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
-	reducer: persistedReducer,
+	reducer: {
+		persistedReducer,
+		[ingoingSlice.reducerPath]: ingoingSlice.reducer,
+		[outgoingSlice.reducerPath]: outgoingSlice.reducer,
+		[friendsSlice.reducerPath]: friendsSlice.reducer,
+	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({
 			serializableCheck: {
 				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
 			},
-		}),
+		})
+			.concat(ingoingSlice.middleware)
+			.concat(outgoingSlice.middleware)
+			.concat(friendsSlice.middleware),
 })
 
 export const persistor = persistStore(store)

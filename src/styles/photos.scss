@@ -1,0 +1,93 @@
+.photos {
+	width: 100%;
+	&__title {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+	&__content {
+		width: 100%;
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(2px);
+		border-radius: 8px;
+		padding: 30px;
+	}
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+		align-items: center;
+	}
+	&__btns {
+		display: flex;
+		column-gap: 15px;
+	}
+	&__btn {
+		font-size: 15px !important;
+	}
+	&__empty {
+		padding: 70px 0;
+		text-align: center;
+	}
+	&__image {
+		display: flex;
+		flex-direction: column;
+		&-close {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+		&-bottom {
+			display: flex;
+			justify-content: center;
+		}
+		&-block {
+			max-width: 300px;
+			margin: 10px;
+			position: relative;
+		}
+		&-img {
+			width: 100%;
+			object-fit: cover;
+			aspect-ratio: 1 / 1;
+		}
+		&-field {
+			width: 100%;
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+		}
+	}
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2px;
+		padding: 15px 0;
+		&-img {
+			border-radius: 8px;
+			object-fit: cover;
+			aspect-ratio: 1 / 1;
+		}
+		&-item {
+			position: relative;
+			width: calc(33.33333% - 3px);
+		}
+		&-tools {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			background-color: #222222;
+			padding: 5px 10px;
+			border-radius: 30px;
+			display: flex;
+			column-gap: 5px;
+		}
+		&-tool {
+			cursor: pointer;
+			color: $grey;
+			transition: 0.5s;
+			&:hover {
+				color: $blue;
+			}
+		}
+	}
+}

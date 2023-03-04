@@ -6,24 +6,52 @@
 	list-style-type: none;
 	text-decoration: none;
 	outline: none;
-	transition: 0.3s all;
+	/* transition: 0.3s all; */
 	font-family: 'Open Sans', sans-serif;
 	font-style: normal;
 	color: white;
 }
+$blue: #0275b1;
+$black: #181818;
+$grey: #8c8c8c;
+$red: #f5222d;
+
+html,
 body {
-	background-color: #181818;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		border-radius: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		background: #294a5c;
+		backdrop-filter: blur(1000px);
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background: #122c39;
+		box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.13);
+		backdrop-filter: blur(1000px);
+	}
+}
+.main {
+	background: linear-gradient(150.15deg, $black 10.12%, $blue 100.22%);
+	min-height: 100vh;
+	&__content {
+		display: flex;
+		column-gap: 30px;
+		padding: 15px 0;
+	}
+	&__outlet {
+		width: calc(85% - 15px);
+		padding: 0;
+	}
 }
 
 button,
 input {
 	cursor: pointer;
 }
-
-$blue: #0275b1;
-$black: #181818;
-$grey: #8c8c8c;
-$red: #f5222d;
 
 @mixin text($fw, $lh, $fz, $col) {
 	font-weight: $fw;
@@ -43,3 +71,8 @@ $red: #f5222d;
 @import 'header';
 @import 'switchLang';
 @import 'register';
+@import 'friends';
+@import 'profile';
+@import 'aside';
+@import 'requests';
+@import 'photos';

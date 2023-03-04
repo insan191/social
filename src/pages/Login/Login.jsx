@@ -1,11 +1,10 @@
+import { useToast } from '@chakra-ui/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { BiErrorCircle } from 'react-icons/bi'
-
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-
 import { fillUser } from '../../redux/reducers/user'
 import axios from '../../utils/axios'
 
@@ -15,6 +14,8 @@ const Login = () => {
 	const navigate = useNavigate()
 
 	const dispatch = useDispatch()
+
+	const toast = useToast()
 
 	const {
 		register,
@@ -29,7 +30,15 @@ const Login = () => {
 				dispatch(fillUser(data))
 				navigate('/')
 			})
-			.catch(err => console.log(err))
+			.catch(err =>
+				toast({
+					title: 'Такого аккаунта не существует.',
+					status: 'error',
+					duration: 5000,
+					position: 'center-top',
+					isClosable: true,
+				})
+			)
 	}
 	return (
 		<div className='register'>

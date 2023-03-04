@@ -5,11 +5,11 @@ import { BiErrorCircle } from 'react-icons/bi'
 import InputMask from 'react-input-mask'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import DownLoadBtn from '../../components/DownloadBtn/DownloadBtn'
+import DownloadBtn from '../../components/DownloadBtn/DownloadBtn'
 import { fillUser } from '../../redux/reducers/user'
-import axios from '../../utils/axios'
+import axios from '../../utils/axios.js'
 
-const Friends = () => {
+const Register = () => {
 	const { t } = useTranslation()
 
 	const [images, setImages] = useState('')
@@ -25,9 +25,8 @@ const Friends = () => {
 		formState: { errors },
 	} = useForm({ mode: 'onTouched' })
 
-	const registerUser = data => {
+	const handleRegisterUser = data => {
 		const { passwordAgain, ...other } = data
-
 		axios
 			.post('/auth/register', {
 				...other,
@@ -46,7 +45,7 @@ const Friends = () => {
 					<form
 						className='register__form'
 						noValidate
-						onSubmit={handleSubmit(registerUser)}
+						onSubmit={handleSubmit(handleRegisterUser)}
 					>
 						<h1 className='register__title'>{t('form.title1')}</h1>
 						<div className='register__block'>
@@ -274,7 +273,7 @@ const Friends = () => {
 							</label>
 						</div>
 
-						<DownLoadBtn images={images} setImages={setImages} t={t} />
+						<DownloadBtn images={images} setImages={setImages} t={t} />
 
 						<div className='register__block'>
 							<label className='register__label'>
@@ -331,4 +330,4 @@ const Friends = () => {
 	)
 }
 
-export default Friends
+export default Register

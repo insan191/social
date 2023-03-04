@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -12,7 +13,9 @@ root.render(
 	<BrowserRouter>
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
-				<App />
+				<ChakraProvider>
+					<App />
+				</ChakraProvider>
 			</PersistGate>
 		</Provider>
 	</BrowserRouter>
