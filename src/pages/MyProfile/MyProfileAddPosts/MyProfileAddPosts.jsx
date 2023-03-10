@@ -1,4 +1,10 @@
-import { Button, Icon } from '@chakra-ui/react'
+import {
+	Button,
+	Popover,
+	PopoverBody,
+	PopoverContent,
+	PopoverTrigger,
+} from '@chakra-ui/react'
 import EmojiPicker from 'emoji-picker-react'
 import React, { useState } from 'react'
 import { BsFillEmojiLaughingFill } from 'react-icons/bs'
@@ -36,27 +42,31 @@ const MyProfileAddPosts = ({ user }) => {
 					className='profile__addPosts-textarea'
 					placeholder='Что у вас нового?'
 				/>
-				<Icon
-					onMouseEnter={() => setEmoji(true)}
-					as={BsFillEmojiLaughingFill}
-					className='profile__addPosts-emojiIcon'
-				/>
-				{emoji === true && (
-					<div
-						className='profile__addPosts-emojiPicker'
-						onMouseLeave={() => setEmoji(false)}
-					>
-						<EmojiPicker
-							onEmojiClick={e => setPosts(posts + e.emoji)}
-							theme='dark'
-							emojiStyle='google'
-							height='300px'
-							skinTonePickerLocation='PREVIEW'
-							searchDisabled='true'
-							lazyLoadEmojis='trues'
-						/>
-					</div>
-				)}
+				<div className='profile__addPosts-emojiPopover'>
+					<Popover>
+						<PopoverTrigger className='profile__addPosts-emojiIcon'>
+							<Button colorScheme='blackAlpha' variant='ghost'>
+								<BsFillEmojiLaughingFill size='20px' />
+							</Button>
+						</PopoverTrigger>
+						<PopoverContent
+							background='none'
+							border='none'
+						>
+							<PopoverBody className='profile__addPosts-emojiPicker'>
+								<EmojiPicker
+									onEmojiClick={e => setPosts(posts + e.emoji)}
+									theme='light'
+									emojiStyle='google'
+									height='300px'
+									skinTonePickerLocation='PREVIEW'
+									searchDisabled='true'
+									lazyLoadEmojis='trues'
+								/>
+							</PopoverBody>
+						</PopoverContent>
+					</Popover>
+				</div>
 			</div>
 			<div className='profile__addPosts-bottom'>
 				<Button colorScheme='blue' onClick={addPost}>

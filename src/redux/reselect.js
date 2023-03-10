@@ -12,3 +12,12 @@ export const findUserSelector = createSelector(
 	store => store.persistedReducer.findUser,
 	item => item
 )
+export const chatsSelector = createSelector(
+	store => store.persistedReducer.chats,
+	item => item
+)
+export const chatSelector = createSelector(
+	store => store.persistedReducer.chat,
+	item => item
+)
+

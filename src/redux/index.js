@@ -10,15 +10,20 @@ import {
 	REHYDRATE,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import chat from './reducers/chat'
+import chats from './reducers/chats'
 import findUsers from './reducers/findUsers'
 import { friendsSlice } from './reducers/friends'
 import { ingoingSlice } from './reducers/ingoing'
+
 import { outgoingSlice } from './reducers/outgoing'
 import user from './reducers/user'
 
 const rootReducer = combineReducers({
 	user,
 	findUsers,
+	chats,
+	chat,
 })
 
 const persistConfig = {

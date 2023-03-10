@@ -1,4 +1,4 @@
-import { Tooltip, Icon, Button } from '@chakra-ui/react'
+import { Button, Icon, Tooltip } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { AiFillDelete } from 'react-icons/ai'
 
@@ -29,11 +29,7 @@ const PhotosItem = ({ item, delPhoto }) => {
 								className='profile__photos-row-tool'
 								onClick={() => delPhoto(item.id)}
 							>
-								<Icon
-									className='profile__photos-row-tool'
-									onClick={() => delPhoto(item.id)}
-									as={AiFillDelete}
-								/>
+								<Icon className='profile__photos-row-tool' as={AiFillDelete} />
 							</Button>
 						</Tooltip>
 					</span>

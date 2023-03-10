@@ -67,7 +67,7 @@ const MyProfilePostsItem = ({ item, idx }) => {
 						>
 							<PopoverArrow />
 							<PopoverBody>
-								<ul className='profile__posts-'>
+								<ul className='profile__posts-popover-list'>
 									<li className='profile__posts-popover-item'>Редактировать</li>
 									<li
 										className='profile__posts-popover-item'

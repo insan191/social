@@ -7,7 +7,7 @@ import axios from '../../utils/axios.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { fillUser } from '../../redux/reducers/user.js'
 import { userSelector } from '../../redux/reselect.js'
-import PhotosItem from './PhotosItem.jsx'
+import PhotosItem from './PhotosItem/PhotosItem.jsx'
 import { MdOutlineAddPhotoAlternate } from 'react-icons/md'
 import { IoIosAlbums } from 'react-icons/io'
 const Photos = () => {

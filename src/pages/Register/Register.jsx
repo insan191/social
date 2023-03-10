@@ -1,3 +1,4 @@
+import { Select } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -8,9 +9,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import DownloadBtn from '../../components/DownloadBtn/DownloadBtn'
 import { fillUser } from '../../redux/reducers/user'
 import axios from '../../utils/axios.js'
+import { days, months, years } from '../../utils/birthday'
 
 const Register = () => {
-	const { t } = useTranslation()
+	const { t, i18n } = useTranslation()
 
 	const [images, setImages] = useState('')
 
@@ -26,10 +28,11 @@ const Register = () => {
 	} = useForm({ mode: 'onTouched' })
 
 	const handleRegisterUser = data => {
-		const { passwordAgain, ...other } = data
+		const { passwordAgain, days, months, years, ...other } = data
 		axios
 			.post('/auth/register', {
 				...other,
+				birthday:`${days} ${months} ${years}`,
 				image: images,
 			})
 			.then(({ data }) => {
@@ -272,30 +275,61 @@ const Register = () => {
 								</span>
 							</label>
 						</div>
-
 						<DownloadBtn images={images} setImages={setImages} t={t} />
-
 						<div className='register__block'>
 							<label className='register__label'>
 								<h2 className='register__label-title'>{t('form.labelAge')}</h2>
-								<input
-									type='date'
-									{...register('birthday', {
-										required: { value: true, message: 'Enter a date' },
-									})}
-									style={{
-										border: errors.birthday && '#f5222d 1px solid',
-									}}
-									className='register__field'
-								/>
-								<span className='register__error'>
-									{errors.birthday && <BiErrorCircle fill='#f5222d' />}
-									<span className='register__error-text'>
-										{errors.birthday && errors.birthday.message}
-									</span>
-								</span>
+								<div className='register__label-birthday'>
+									<Select
+										variant='unstyled'
+										{...register('days')}
+										className='register__field'
+									>
+										{days.map(item => (
+											<option
+												className='register__label-option'
+												value={item}
+												key={item}
+											>
+												{item}
+											</option>
+										))}
+									</Select>
+									<Select
+										variant='unstyled'
+										{...register('months')}
+										className='register__field'
+									>
+										{months.map(item => (
+											<option
+												className='register__label-option'
+												value={item.en}
+												key={item.en}
+											>
+												{i18n.language === 'ru' ? item.ru : item.en}
+											</option>
+										))}
+									</Select>
+									<Select
+										variant='unstyled'
+										{...register('years')}
+										className='register__field'
+									>
+										{years(2009).map(item => (
+											<option
+												className='register__label-option'
+												bg='red'
+												value={item}
+												key={item}
+											>
+												{item}
+											</option>
+										))}
+									</Select>
+								</div>
 							</label>
-
+						</div>
+						<div className='register__block'>
 							<label className='register__label'>
 								<h2 className='register__label-title'>{t('form.labelCity')}</h2>
 								<input

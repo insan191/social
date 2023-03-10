@@ -1,4 +1,5 @@
 import { Button, CloseButton, Image } from '@chakra-ui/react'
+import axios from '../../../../../utils/axios.js'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,20 +7,40 @@ import { fillUser } from '../../../../../redux/reducers/user.js'
 
 const FriendsOutgoingCard = ({
 	item,
-	user,
-	cancelOutgoing,
-	acceptOutgoing,
+	user
 }) => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const acceptFriends = async id => {
-		await acceptOutgoing({ senderId: id, recieverId: user._id }).unwrap()
-		dispatch(fillUser)
-	}
-	const handleCancelOutgoing = async id => {
-		await cancelOutgoing({ senderId: id, recieverId: user._id }).unwrap()
-		dispatch(fillUser)
-	}
+	// const acceptFriends = async id => {
+	// 	await acceptOutgoing({ senderId: id, recieverId: user._id }).unwrap()
+	// 	dispatch(fillUser)
+	// }
+	// const handleCancelOutgoing = async id => {
+	// 	await cancelOutgoing({ senderId: id, recieverId: user._id }).unwrap()
+	// 	dispatch(fillUser)
+	// }
+	const handleAcceptFriends = (id) => {
+		axios.patch('/request/add', {
+				senderId: id,
+				recieverId: user._id
+		}).then((res) => {
+				dispatch(fillUser(res.data))
+		}).catch((err) => {
+				console.log(err)
+		})
+}
+
+const handleCancelOutgoing  = (id) => {
+		axios.patch('/request/cancel', {
+				senderId: id,
+				recieverId: user._id
+		}).then((res) => {
+				dispatch(fillUser(res.data))
+		}).catch((err) => {
+				console.log(err)
+		})
+}
+
 	return (
 		<div className='requests__item'>
 			<Image
@@ -42,7 +63,7 @@ const FriendsOutgoingCard = ({
 				<Button
 					colorScheme='blue'
 					className='requests__item-confirm'
-					onClick={() => acceptFriends(item._id)}
+					onClick={() => handleAcceptFriends(item._id)}
 				>
 					Подтвердить
 				</Button>

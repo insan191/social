@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Layout from '../Layout/Layout'
+import Chat from '../pages/Chat/Chat'
+import EditMyProfile from '../pages/EditMyProfile/EditMyProfile'
 import Friends from '../pages/Friends/Friends'
 import Home from '../pages/Home/Home'
 import MyProfile from '../pages/MyProfile/MyProfile'
@@ -16,6 +18,8 @@ const PrivateRouting = () => {
 				<Route path='friends' element={<Friends />} />
 				<Route path='myprofile' element={<MyProfile />} />
 				<Route path='photos' element={<Photos />} />
+				<Route path='chat/*' element={<Chat />} />
+				<Route path='editmyprofile' element={<EditMyProfile />} />
 				<Route path='profile/:id' element={<Profile />} />
 				<Route path='*' element={<NotFound />} />
 			</Route>

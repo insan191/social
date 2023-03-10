@@ -4,18 +4,16 @@ import '@fancyapps/ui/dist/fancybox.css'
 import { v4 as uuidv4 } from 'uuid'
 import React, { useRef, useState } from 'react'
 import axios from '../../../utils/axios.js'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fillUser } from '../../../redux/reducers/user.js'
-import { userSelector } from '../../../redux/reselect.js'
 import PhotosItem from './MyProfilePhotosItem.jsx'
 import { useNavigate } from 'react-router-dom'
-const MyProfilePhotos = () => {
+const MyProfilePhotos = ({user}) => {
 	const navigate = useNavigate()
 	const [photo, setPhoto] = useState('')
 	const dispatch = useDispatch()
 	const [desc, setDesc] = useState('')
 	const image = useRef()
-	const { user } = useSelector(userSelector)
 	const handleImage = async e => {
 		try {
 			const formData = new FormData()
