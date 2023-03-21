@@ -1,45 +1,47 @@
 import { Button, CloseButton, Image } from '@chakra-ui/react'
-import axios from '../../../../../utils/axios.js'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { fillUser } from '../../../../../redux/reducers/user.js'
+import axios from '../../../../../utils/axios.js'
+// import {
+// 	useAcceptOutgoingMutation,
+// 	useCancelOutgoingMutation,
+// } from '../../../../../redux/reducers/outgoing.js'
 
-const FriendsOutgoingCard = ({
-	item,
-	user
-}) => {
+const FriendsOutgoingCard = ({ item, user }) => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	// const acceptFriends = async id => {
+	// const [acceptOutgoing] = useAcceptOutgoingMutation()
+	// const [cancelOutgoing] = useCancelOutgoingMutation()
+	// const handleAcceptFriends = async id => {
 	// 	await acceptOutgoing({ senderId: id, recieverId: user._id }).unwrap()
-	// 	dispatch(fillUser)
 	// }
 	// const handleCancelOutgoing = async id => {
 	// 	await cancelOutgoing({ senderId: id, recieverId: user._id }).unwrap()
-	// 	dispatch(fillUser)
 	// }
-	const handleAcceptFriends = (id) => {
-		axios.patch('/request/add', {
-				senderId: id,
-				recieverId: user._id
-		}).then((res) => {
-				dispatch(fillUser(res.data))
-		}).catch((err) => {
-				console.log(err)
-		})
-}
 
-const handleCancelOutgoing  = (id) => {
-		axios.patch('/request/cancel', {
-				senderId: id,
-				recieverId: user._id
-		}).then((res) => {
-				dispatch(fillUser(res.data))
-		}).catch((err) => {
-				console.log(err)
-		})
-}
+		const handleAcceptFriends = (id) => {
+			axios.patch('/request/add', {
+					senderId: id,
+					recieverId: user._id
+			}).then((res) => {
+					dispatch(fillUser(res.data))
+			}).catch((err) => {
+					console.log(err)
+			})
+	}
+
+	const handleCancelOutgoing  = (id) => {
+			axios.patch('/request/cancel', {
+					senderId: id,
+					recieverId: user._id
+			}).then((res) => {
+					dispatch(fillUser(res.data))
+			}).catch((err) => {
+					console.log(err)
+			})
+	}
 
 	return (
 		<div className='requests__item'>

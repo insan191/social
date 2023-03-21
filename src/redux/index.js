@@ -15,7 +15,6 @@ import chats from './reducers/chats'
 import findUsers from './reducers/findUsers'
 import { friendsSlice } from './reducers/friends'
 import { ingoingSlice } from './reducers/ingoing'
-
 import { outgoingSlice } from './reducers/outgoing'
 import user from './reducers/user'
 

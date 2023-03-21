@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
+import { fillUser } from './user'
 export const outgoingSlice = createApi({
 	reducerPath: 'outgoing',
 	tagTypes: ['users'],
@@ -14,6 +14,9 @@ export const outgoingSlice = createApi({
 				url: '/request/cancel',
 				method: 'PATCH',
 				body: arg,
+				// onSuccess:async(dispatch,data)=>{
+				// 	dispatch(fillUser(data))
+				// }
 			}),
 			invalidatesTags: ['users'],
 		}),
